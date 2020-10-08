@@ -1,0 +1,28 @@
+<h1>{{action | titlecase}} Organization</h1>
+<div mat-dialog-content>
+  <form name="organizationForm" [formGroup]="organizationForm" novalidate>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Name" formControlName="name" [(ngModel)]="selectedOrganization.name">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Address" formControlName="address"
+        [(ngModel)]="selectedOrganization.address">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Email" formControlName="email" [(ngModel)]="selectedOrganization.email">
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="Mobile" formControlName="mobile"
+        [(ngModel)]="selectedOrganization.mobile">
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancelClick()" color="warn">Cancel</button>
+  <button mat-raised-button [disabled]="!organizationForm.valid" (click)="submitForm()" color="primary">Save</button>
+</div>

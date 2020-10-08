@@ -1,0 +1,44 @@
+<h2 class="mat-display-1 center">Organization</h2>
+<div class="center">
+  <button mat-raised-button color="primary" (click)="addOrganization()">Add Organization</button>
+  <button mat-raised-button color="accent" (click)="editOrganization()">Edit Organization</button>
+</div>
+<div *ngIf="errorMessage">
+  {{errorMessage}}
+</div>
+
+<div *ngIf="dataSource">
+  <table [dataSource]="dataSource" mat-table class="mat-elevation-z8">
+
+    <ng-container matColumnDef="organizationId">
+      <th mat-header-cell *matHeaderCellDef>Org Id</th>
+      <td mat-cell *matCellDef="let organization">{{organization.organizationId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef>Organization</th>
+      <td mat-cell *matCellDef="let organization">{{organization.name}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let organization">{{organization.address}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="email">
+      <th mat-header-cell *matHeaderCellDef>Email</th>
+      <td mat-cell *matCellDef="let organization">{{organization.email}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="mobile">
+      <th mat-header-cell *matHeaderCellDef>Contact Number</th>
+      <td mat-cell *matCellDef="let organization">{{organization.mobile}}</td>
+    </ng-container>
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="rowClick($event, row)"
+      [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected(row)}" (mouseover)="row.hovered = true"
+      (mouseout)="row.hovered = false"></tr>
+  </table>
+</div>

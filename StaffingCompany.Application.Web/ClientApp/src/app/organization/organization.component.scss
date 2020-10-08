@@ -1,0 +1,24 @@
+.center {
+  text-align: center;
+}
+
+.mat-display-1 {
+  margin-bottom: 10px;
+}
+
+button {
+  margin-left: 15px;
+}
+table {
+  margin-top: 10px;
+  width: 100%;
+}
+.mat-row {
+  &.hovered {
+    background: #e8eaf6;
+  }
+
+  &.highlighted {
+    background: #7986cb;
+  }
+}
