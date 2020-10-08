@@ -1,0 +1,23 @@
+<h1>{{action | titlecase}} Job</h1>
+<div mat-dialog-content>
+  <form name="employeeForm" [formGroup]="employeeForm" novalidate>
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Organization</mat-label>
+      <mat-select formControlName="organizationId" [(ngModel)]="selectedJob.organizationId">
+        <mat-option *ngFor="let organization of organizations" [value]="organization.value">{{organization.selectValue}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+      <input matInput type="text" placeholder="First Name" formControlName="post"
+        [(ngModel)]="selectedJob.post">
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="cancelClick()" color="warn">Cancel</button>
+  <button mat-raised-button [disabled]="!employeeForm.valid" (click)="submitForm()" color="primary">Save</button>
+</div>

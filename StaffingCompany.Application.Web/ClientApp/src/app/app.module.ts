@@ -18,6 +18,10 @@ const appRoutes: Routes = [
   {
     path: 'organization',
     loadChildren: () => import('./organization/organization.module').then(m => m.OrganizationModule)
+  },
+  {
+    path: 'job',
+    loadChildren: () => import('./job/job.module').then(m => m.JobModule)
   }
 ];
 @NgModule({
