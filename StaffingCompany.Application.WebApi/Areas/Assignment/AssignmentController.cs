@@ -44,11 +44,11 @@ namespace StaffingCompany.Application.WebApi.Areas.Assignment
         }
 
         [HttpPut]
-        public IActionResult MarkAssignmentAsComplete([FromBody] MvAssignment assignment)
+        public IActionResult MarkAssignmentAsComplete([FromBody] MvCompleteAssignment completeAssignment)
         {
             try
             {
-                dynamic jsonString = _assignmentService.MarkAssignmentAsComplete(assignment);
+                dynamic jsonString = _assignmentService.MarkAssignmentAsComplete(completeAssignment);
                 return Ok(jsonString);
             }
             catch (Exception e)

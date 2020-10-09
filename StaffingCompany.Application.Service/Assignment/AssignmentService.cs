@@ -151,7 +151,7 @@ namespace StaffingCompany.Application.Service.Assignment
             }
         }
 
-        public dynamic MarkAssignmentAsComplete(MvAssignment assignment)
+        public dynamic MarkAssignmentAsComplete(MvCompleteAssignment completeAssignment)
         {
             using (var dbConnection = _dah.GetConnection())
             {
@@ -159,8 +159,8 @@ namespace StaffingCompany.Application.Service.Assignment
                 dbCommand.CommandType = CommandType.StoredProcedure;
                 dbCommand.CommandText = "SpAssignmentStatusTsk";
                 dbCommand.Parameters.Add("@Json", SqlDbType.NVarChar);
-                dbCommand.Parameters["@Json"].Value = "{\"assignmentId\":\"" + assignment.AssignmentId + "\"," +
-                                                      "\"insertPersonId\":" + assignment.InsertPersonId + "}";
+                dbCommand.Parameters["@Json"].Value = dbCommand.Parameters["@Json"].Value = "{\"assignmentId\":" + completeAssignment.AssignmentId + "," +
+                                                      "\"insertPersonId\":" + completeAssignment.InsertPersonId + "}"; 
 
                 using (SqlDataReader reader = dbCommand.ExecuteReader())
                 {

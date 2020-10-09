@@ -6,7 +6,7 @@ namespace StaffingCompany.Application.Service.Assignment
     {
         dynamic AddAssignment(MvAssignment assignment);
         dynamic EditAssignment(MvAssignment assignment);
-        dynamic MarkAssignmentAsComplete(MvAssignment assignment);
+        dynamic MarkAssignmentAsComplete(MvCompleteAssignment completeAssignment);
         dynamic GetAllAssignment();
         dynamic GetAssignment(string json);
     }

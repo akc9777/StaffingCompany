@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
 import { CdkTableModule } from '@angular/cdk/table';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [],
@@ -22,7 +23,8 @@ import { CdkTableModule } from '@angular/cdk/table';
     MatInputModule,
     MatDialogModule,
     MatSelectModule,
-    CdkTableModule
+    CdkTableModule,
+    MatCheckboxModule
   ]
 })
 export class MaterialModule { }

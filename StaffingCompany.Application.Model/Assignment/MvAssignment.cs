@@ -11,4 +11,10 @@
         public int Rate { get; set; }
         public int InsertPersonId { get; set; }
     }
+    
+    public class MvCompleteAssignment
+    {
+        public int AssignmentId { get; set; }
+        public int InsertPersonId { get; set; }
+    }
 }

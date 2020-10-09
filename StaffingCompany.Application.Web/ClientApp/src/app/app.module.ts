@@ -9,6 +9,7 @@ import { NavMenuComponent } from './nav-menu/nav-menu.component';
 import { HomeComponent } from './home/home.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+
 const appRoutes: Routes = [
   { path: '', component: HomeComponent, pathMatch: 'full' },
   {
@@ -22,6 +23,14 @@ const appRoutes: Routes = [
   {
     path: 'job',
     loadChildren: () => import('./job/job.module').then(m => m.JobModule)
+  },
+  {
+    path: 'assignment',
+    loadChildren: () => import('./assignment/assignment.module').then(m => m.AssignmentModule)
+  },
+  {
+    path: 'transaction',
+    loadChildren: () => import('./transaction/transaction.module').then(m => m.TransactionModule)
   }
 ];
 @NgModule({

@@ -5,6 +5,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using StaffingCompany.Application.Service.Assignment;
 using StaffingCompany.Application.Service.Employee;
+using StaffingCompany.Application.Service.Invoice;
 using StaffingCompany.Application.Service.Job;
 using StaffingCompany.Application.Service.Organization;
 using StaffingCompany.Application.Service.Transaction;
@@ -40,6 +41,7 @@ namespace StaffingCompany.Application.WebApi
             services.AddTransient<IJobService, JobService>();
             services.AddTransient<IAssignmentService, AssignmentService>();
             services.AddTransient<ITransactionService, TransactionService>();
+            services.AddTransient<IInvoiceService, InvoiceService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
