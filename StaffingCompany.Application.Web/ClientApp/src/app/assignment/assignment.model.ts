@@ -17,5 +17,7 @@ export interface MvAssignment {
 
 export interface MvCompletedAssignment {
     assignmentId: number;
+    employeeId:  number;
+    organizationId: number;
     insertPersonId: number;
 }

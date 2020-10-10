@@ -15,6 +15,8 @@
     public class MvCompleteAssignment
     {
         public int AssignmentId { get; set; }
+        public int EmployeeId { get; set; }
+        public int OrganizationId { get; set; }
         public int InsertPersonId { get; set; }
     }
 }

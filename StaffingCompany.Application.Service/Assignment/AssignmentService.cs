@@ -160,6 +160,8 @@ namespace StaffingCompany.Application.Service.Assignment
                 dbCommand.CommandText = "SpAssignmentStatusTsk";
                 dbCommand.Parameters.Add("@Json", SqlDbType.NVarChar);
                 dbCommand.Parameters["@Json"].Value = dbCommand.Parameters["@Json"].Value = "{\"assignmentId\":" + completeAssignment.AssignmentId + "," +
+                                                      "\"employeeId\":" + completeAssignment.EmployeeId + "," +
+                                                      "\"organizationId\":" + completeAssignment.OrganizationId + "," +
                                                       "\"insertPersonId\":" + completeAssignment.InsertPersonId + "}"; 
 
                 using (SqlDataReader reader = dbCommand.ExecuteReader())

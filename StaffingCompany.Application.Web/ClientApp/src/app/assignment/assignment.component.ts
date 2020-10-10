@@ -73,8 +73,13 @@ export class AssignmentComponent implements OnInit {
     if (!this.selection.hasValue()) {
       this.snackBar.openSnackBar('No assignment selected', 'warning');
       return;
+    } else if (this.selectedAssignment.status) {
+      this.snackBar.openSnackBar('Assignment is already completed', 'warning');
+      return;
     }
     this.completedAssignment.assignmentId = this.selectedAssignment.assignmentId;
+    this.completedAssignment.employeeId = this.selectedAssignment.employeeId;
+    this.completedAssignment.organizationId = this.selectedAssignment.organizationId;
     this.completedAssignment.insertPersonId = 4200;
     this.assignmentService.markAssignmentComplete(this.completedAssignment).subscribe(result => {
       this.snackBar.openSnackBar('Assignment marked as complete', 'success');
