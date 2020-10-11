@@ -1,0 +1,43 @@
+<h3 mat-dialog-title>Invoice</h3>
+<div mat-dialog-content>
+
+  <ul>
+    <li><b>Id:</b> {{invoice.entityId}}</li>
+    <li><b>For:</b> {{invoice.entityType==1? 'Employee': 'Organization'}}</li>
+    <li><b>Name:</b> {{invoice.entityName}}</li>
+    <li><b>Billing Date:</b> {{invoice.insertDate | date:'shortDate'}}</li>
+    <li><b>Total Bill Amount:</b> ${{invoice.amount}}</li>
+  </ul>
+  <table class="invoice" border=1>
+    <thead>
+      <tr>
+        <th>Transaction Id</th>
+        <th>Assignment Id</th>
+        <th *ngIf="invoice.entityType==1">Organization Id</th>
+        <th *ngIf="invoice.entityType==1">Organization</th>
+        <th *ngIf="invoice.entityType==2">Employee Id</th>
+        <th *ngIf="invoice.entityType==2">Employee</th>
+        <th>Task</th>
+        <th>Amount</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let transaction of invoiceTransactions">
+        <td class='tbl-center'>{{transaction.transactionId}}</td>
+        <td>{{transaction.assignmentId}}</td>
+        <td class='tbl-center' *ngIf="invoice.entityType==1">{{transaction.organizationId}}</td>
+        <td class='tbl-center' *ngIf="invoice.entityType==1">{{transaction.organizationName}}</td>
+        <td class='tbl-center' *ngIf="invoice.entityType==2">{{transaction.employeeId}}</td>
+        <td class='tbl-center' *ngIf="invoice.entityType==2">{{transaction.employeeName}}</td>
+        <td>{{transaction.task}}</td>
+        <td>{{transaction.amount| currency}}</td>
+        <td>{{transaction.date | date:'shortDate'}}</td>
+      </tr>
+    </tbody>
+    <tfoot>
+      <td colspan="5"><b>Total</b></td>
+      <td colspan="2">{{invoice.amount | currency}}</td>
+    </tfoot>
+  </table>
+</div>

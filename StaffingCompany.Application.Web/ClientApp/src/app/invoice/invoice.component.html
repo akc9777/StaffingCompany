@@ -1,0 +1,43 @@
+<h2 class="mat-display-1 center">Invoice</h2>
+<div class="center">
+  <button mat-raised-button color="primary" (click)="viewInvoiceDetail()">View Details</button>
+</div>
+
+<div *ngIf="errorMessage">
+  {{errorMessage}}
+</div>
+
+<div *ngIf="dataSource">
+  <table [dataSource]="dataSource" mat-table class="mat-elevation-z8">
+
+    <ng-container matColumnDef="invoiceId">
+      <th mat-header-cell *matHeaderCellDef>Invoice Id</th>
+      <td mat-cell *matCellDef="let invoice">{{invoice.invoiceId}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="entityName">
+      <th mat-header-cell *matHeaderCellDef>Invoiced To</th>
+      <td mat-cell *matCellDef="let invoice">{{invoice.entityName}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="entityType">
+      <th mat-header-cell *matHeaderCellDef>Entity Type</th>
+      <td mat-cell *matCellDef="let invoice">{{invoice.entityType== 1? 'Employee': 'Organization'}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="amount">
+      <th mat-header-cell *matHeaderCellDef>Amount</th>
+      <td mat-cell *matCellDef="let invoice">{{invoice.amount}}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="insertDate">
+      <th mat-header-cell *matHeaderCellDef>Date</th>
+      <td mat-cell *matCellDef="let invoice">{{invoice.insertDate | date:"MM/dd/yy"}}</td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns" (click)="rowClick($event, row)"
+      [ngClass]="{hovered: row.hovered, highlighted: selection.isSelected(row)}" (mouseover)="row.hovered = true"
+      (mouseout)="row.hovered = false"></tr>
+  </table>
+</div>

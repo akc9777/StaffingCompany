@@ -10,3 +10,14 @@ export interface MvTransaction {
     amount: number;
     date: string;
 }
+export interface MvTransactionInvoice {
+    transactionId: number;
+    assignmentId: number;
+    organizationId: number;
+    organizationName: string;
+    employeeId: number;
+    employeeName: string;
+    task: string;
+    amount: number;
+    date: string;
+}
