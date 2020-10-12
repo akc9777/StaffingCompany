@@ -29,7 +29,7 @@ namespace StaffingCompany.Application.Service.Invoice
                 dbCommand.Parameters.Add("@Json", SqlDbType.NVarChar);
                 dbCommand.Parameters["@Json"].Value = "{\"entityType\":" + invoice.EntityType + "," +
                                                       "\"entityId\":" + invoice.EntityId + "," +
-                                                      "\"transaction\":\"" + invoice.Transactions + "\"," +
+                                                      "\"transaction\":" + invoice.Transactions + "," +
                                                       "\"insertPersonId\":" + invoice.InsertPersonId + "}";
                 using (SqlDataReader reader = dbCommand.ExecuteReader())
                 {

@@ -10,6 +10,13 @@ export class InvoiceService {
 
   constructor(private api: WebApiService) { }
 
+  addInvoice(json): Observable<any> {
+    json = JSON.stringify(json);
+    console.log(json);
+    console.log(json.substring(1, json.length - 1));
+    return this.api.post('invoice/addinvoice', json.substring(1, json.length - 1));
+  }
+
   getAllInvoice() {
     return this.api.get('invoice/getallinvoice');
   }

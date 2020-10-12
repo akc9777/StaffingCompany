@@ -19,5 +19,6 @@ export interface MvTransactionInvoice {
     employeeName: string;
     task: string;
     amount: number;
+    status: number;
     date: string;
 }
