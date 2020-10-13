@@ -5,7 +5,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { FormModule } from '../shared/form/form.module';
 import { MaterialModule } from '../shared/material/material.module';
 import { SnackbarService } from 'src/core/services/snackbar.service';
-import { CreateInvoiceComponent } from './create-invoice/create-invoice.component';
 import { TransactionService } from './transaction.service';
 
 const routes: Routes = [
@@ -22,11 +21,10 @@ const routes: Routes = [
     MaterialModule,
     FormModule
   ],
-  declarations: [TransactionComponent, CreateInvoiceComponent],
+  declarations: [TransactionComponent],
   providers: [
     TransactionService,
     SnackbarService
-  ],
-  entryComponents: [CreateInvoiceComponent]
+  ]
 })
 export class TransactionModule { }

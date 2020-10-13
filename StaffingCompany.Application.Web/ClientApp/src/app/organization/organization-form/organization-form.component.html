@@ -3,21 +3,27 @@
   <form name="organizationForm" [formGroup]="organizationForm" novalidate>
 
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Name" formControlName="name" [(ngModel)]="selectedOrganization.name">
+      <input matInput type="text" #input maxlength="50" placeholder="Name" formControlName="name"
+        (focus)="focusState = true" (focusout)="focusState = false" [(ngModel)]="selectedOrganization.name">
+      <mat-hint align="end" *ngIf="focusState">{{selectedOrganization.name?.length || 0}}/50</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Address" formControlName="address"
+      <input matInput type="text" #input maxlength="50" placeholder="Address" formControlName="address"
         [(ngModel)]="selectedOrganization.address">
+      <mat-hint align="end">{{selectedOrganization.address?.length || 0}}/50</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Email" formControlName="email" [(ngModel)]="selectedOrganization.email">
+      <input matInput type="email" #input maxlength="50" placeholder="Email" formControlName="email"
+        [(ngModel)]="selectedOrganization.email">
+      <mat-hint align="end">{{selectedOrganization.email?.length || 0}}/50</mat-hint>
     </mat-form-field>
 
     <mat-form-field class="example-full-width">
-      <input matInput type="text" placeholder="Mobile" formControlName="mobile"
+      <input matInput type="number" #input maxlength="10" placeholder="Mobile" formControlName="mobile"
         [(ngModel)]="selectedOrganization.mobile">
+      <mat-hint align="end">{{selectedOrganization.mobile?.length || 0}}/10</mat-hint>
     </mat-form-field>
 
   </form>
